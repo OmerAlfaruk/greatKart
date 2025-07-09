@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "category",
-    "account",
+    "accounts",
+    "store",  # Custom app for store functionality
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "category.context_processors.menu_links",  # Custom context processor for category links
             ],
         },
     },
@@ -72,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "greatcart.wsgi.application"
 # Authentication backends
-AUTH_USER_MODEL = "account.Account"  # Custom user model
+AUTH_USER_MODEL = "accounts.Account"  # Custom user model
 
 
 # Database
@@ -125,6 +127,9 @@ STATIC_ROOT = BASE_DIR / "static"  # Directory where static files will be collec
 STATICFILES_DIRS = [
     "greatcart/static",  # Directory for custom static files
 ]
+# Media files (User-uploaded content)
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"  # Directory for user-uploaded files
 
 
 # Default primary key field type
