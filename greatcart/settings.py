@@ -133,8 +133,23 @@ STATICFILES_DIRS = [
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"  # Directory for user-uploaded files
 
+from django.contrib.messages import constants as messages
+
+# Message tags for Bootstrap alerts
+MESSAGE_TAGS = {
+    messages.DEBUG: "secondary",
+    messages.INFO: "info",
+    messages.SUCCESS: "success",
+    messages.WARNING: "warning",
+    messages.ERROR: "danger",
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "omerkamil974@gmail.com"
+EMAIL_HOST_PASSWORD = "ywfu jjse ickv iymg"  # not your Gmail login password
